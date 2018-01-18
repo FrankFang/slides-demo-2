@@ -46,8 +46,8 @@ function goToSlide(index){
     console.log('here')
     $slides.css({transform:`translateX(${-($buttons.length + 1) * 400}px)`})
       .one('transitionend', function(){
-        $slides.hide().offset()
-        $slides.css({transform:`translateX(${-(index+1)*400}px)`}).show()
+        // $slides.offset() // 触发 re-layout，这是一个高级技术，删掉这行你就会发现 bug，所以只能加上这一行。
+        $slides.css({transform:`translateX(${-(index+1)*400}px)`})
       })
 
   }else if(current === 0 && index === $buttons.length - 1){
